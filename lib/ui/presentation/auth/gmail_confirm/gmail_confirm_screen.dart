@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:arboblar_uz/cubits/auth/auth_cubit.dart';
-import 'package:arboblar_uz/presentation/auth/gmail_confirm/pages/code_input.dart';
-import 'package:arboblar_uz/presentation/auth/gmail_confirm/pages/email_password_input.dart';
-import 'package:arboblar_uz/presentation/auth/widgets/global_button.dart';
+import 'package:arboblar_uz/ui/presentation/auth/gmail_confirm/pages/code_input.dart';
+import 'package:arboblar_uz/ui/presentation/auth/gmail_confirm/pages/email_password_input.dart';
+import 'package:arboblar_uz/ui/presentation/auth/widgets/global_button.dart';
 
 class GmailConfirmScreen extends StatefulWidget {
   const GmailConfirmScreen({super.key});

@@ -1,4 +1,4 @@
-import 'package:arboblar_uz/presentation/auth/widgets/global_text_fields.dart';
+import 'package:arboblar_uz/ui/presentation/auth/widgets/global_text_fields.dart';
 import 'package:flutter/material.dart';
 
 class CodeInput extends StatelessWidget {

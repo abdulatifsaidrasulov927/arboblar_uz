@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:arboblar_uz/cubits/auth/auth_cubit.dart';
-import 'package:arboblar_uz/presentation/auth/widgets/global_text_fields.dart';
+import 'package:arboblar_uz/ui/presentation/auth/widgets/global_text_fields.dart';
 
 class EmailPasswordInput extends StatelessWidget {
   const EmailPasswordInput(

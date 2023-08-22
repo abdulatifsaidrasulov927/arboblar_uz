@@ -21,6 +21,12 @@ class _SignInPageState extends State<SignInPage> {
       child: ListView(
         children: [
           Container(
+            height: 40,
+            width: double.infinity,
+            decoration: const BoxDecoration(color: Colors.blue),
+            child: const Center(child: Text('Sign in')),
+          ),
+          Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
               child: const Text(

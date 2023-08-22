@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:arboblar_uz/cubits/auth/auth_cubit.dart';
 import 'package:arboblar_uz/data/local/storage_repository.dart';
-import 'package:arboblar_uz/presentation/app_routes.dart';
+import 'package:arboblar_uz/ui/presentation/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

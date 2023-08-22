@@ -1,7 +1,7 @@
-import 'package:arboblar_uz/presentation/auth/auth_screen.dart';
-import 'package:arboblar_uz/presentation/auth/gmail_confirm/gmail_confirm_screen.dart';
-import 'package:arboblar_uz/presentation/splash/splash_screen.dart';
-import 'package:arboblar_uz/presentation/tab/tab_box.dart';
+import 'package:arboblar_uz/ui/presentation/auth/auth_screen.dart';
+import 'package:arboblar_uz/ui/presentation/auth/gmail_confirm/gmail_confirm_screen.dart';
+import 'package:arboblar_uz/ui/presentation/splash/splash_screen.dart';
+import 'package:arboblar_uz/ui/presentation/tab/tab_box.dart';
 import 'package:flutter/material.dart';
 
 class RouteNames {
