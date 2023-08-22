@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:arboblar_uz/cubits/auth/auth_cubit.dart';
-import 'package:arboblar_uz/ui/presentation/auth/widgets/global_text_fields.dart';
 
 class EmailPasswordInput extends StatelessWidget {
   const EmailPasswordInput(
@@ -20,23 +19,53 @@ class EmailPasswordInput extends StatelessWidget {
           child: CircularProgressIndicator(),
         );
       }
-      return Column(
-        children: [
-          GlobalTextField(
-            hintText: "Gmail",
-            keyboardType: TextInputType.text,
-            textInputAction: TextInputAction.next,
-            textAlign: TextAlign.center,
-            controller: gmailController,
-          ),
-          GlobalTextField(
-            hintText: "Password",
-            keyboardType: TextInputType.text,
-            textInputAction: TextInputAction.done,
-            textAlign: TextAlign.center,
-            controller: passwordController,
-          )
-        ],
+      return SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 360,
+              width: 400,
+              child: const Center(
+                child: Text(
+                  'X',
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: gmailController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Gmail',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'new Password',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'new Password check',
+                ),
+              ),
+            ),
+          ],
+        ),
       );
     });
   }

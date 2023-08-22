@@ -31,6 +31,7 @@ class _GmailConfirmScreenState extends State<GmailConfirmScreen> {
             children: [
               Expanded(
                 child: PageView(
+                  // physics: NeverScrollableScrollPhysics(),
                   controller: pageController,
                   children: [
                     EmailPasswordInput(
