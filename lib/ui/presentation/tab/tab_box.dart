@@ -1,4 +1,10 @@
+import 'package:arboblar_uz/ui/user/user_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:arboblar_uz/cubits/auth/auth_cubit.dart';
+import 'package:arboblar_uz/ui/presentation/app_routes.dart';
+import 'package:arboblar_uz/ui/presentation/tab/articles/articles_screen.dart';
+import 'package:arboblar_uz/ui/presentation/tab/profile/profile_screen.dart';
 
 class TabBox extends StatefulWidget {
   const TabBox({super.key});
@@ -15,8 +21,9 @@ class _TabBoxState extends State<TabBox> {
   @override
   void initState() {
     screens = [
-      const Center(child: Text("Screen 1")),
-      const Center(child: Text("Screen 2")),
+      ArticlesScreen(),
+      ProfileScreen(),
+      UsersPage(),
     ];
 
     super.initState();
@@ -25,13 +32,20 @@ class _TabBoxState extends State<TabBox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[currentIndex],
+      body: BlocListener<AuthCubit, AuthState>(
+        child: screens[currentIndex],
+        listener: (context, state) {
+          if (state is AuthUnAuthenticatedState) {
+            Navigator.pushReplacementNamed(context, RouteNames.loginScreen);
+          }
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.article), label: "Article"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shop_two), label: "Screen 1"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.category), label: "Screen 2"),
+              icon: Icon(Icons.people_outline_rounded), label: "Users"),
         ],
         currentIndex: currentIndex,
         onTap: (index) {

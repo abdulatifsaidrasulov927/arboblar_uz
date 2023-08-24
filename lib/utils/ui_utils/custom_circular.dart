@@ -1,5 +1,5 @@
-import 'package:arboblar_uz/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:arboblar_uz/utils/colors/app_colors.dart';
 
 class CustomCircularProgressIndicator extends StatelessWidget {
   final double? strokeWidth;

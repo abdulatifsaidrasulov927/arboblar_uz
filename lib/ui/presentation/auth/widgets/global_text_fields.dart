@@ -35,7 +35,7 @@ class GlobalTextField extends StatelessWidget {
         )
       ]),
       child: TextField(
-        cursorColor: const Color(0xFF4F8962),
+        cursorColor: Color(0xFF4F8962),
         maxLines: maxLine,
         style: TextStyle(
             fontSize: 20,

@@ -1,12 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arboblar_uz/cubits/auth/auth_cubit.dart';
 import 'package:arboblar_uz/data/local/storage_repository.dart';
 import 'package:arboblar_uz/data/network/api_service.dart';
 import 'package:arboblar_uz/data/repositories/auth_repository.dart';
 import 'package:arboblar_uz/ui/presentation/app_routes.dart';
 import 'package:arboblar_uz/utils/theme.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:arboblar_uz/data/models/universal_data.dart';
 import 'package:arboblar_uz/data/models/user/user_model.dart';
 import 'package:arboblar_uz/utils/constants/constants.dart';
@@ -99,23 +98,18 @@ class ApiService {
     }
   }
 
-  Future<UniversalData> registerUser({
-    required UserModel userModel,
-    required XFile file,
-  }) async {
+  Future<UniversalData> registerUser({required UserModel userModel}) async {
     Response response;
-
     _dio.options.headers = {
       "Accept": "multipart/form-data",
     };
     try {
       response = await _dio.post(
         '/register',
-        data: userModel.getFormData(file),
+        data: await userModel.getFormData(),
       );
-
       if ((response.statusCode! >= 200) && (response.statusCode! < 300)) {
-        return UniversalData(data: response.data["message"]);
+        return UniversalData(data: response.data["data"]);
       }
       return UniversalData(error: "Other Error");
     } on DioException catch (e) {
@@ -144,7 +138,7 @@ class ApiService {
       );
 
       if ((response.statusCode! >= 200) && (response.statusCode! < 300)) {
-        return UniversalData(data: UserModel.fromJson(response.data["data"]));
+        return UniversalData(data: response.data["data"]);
       }
       return UniversalData(error: "Other Error");
     } on DioException catch (e) {
