@@ -5,6 +5,7 @@ import 'package:arboblar_uz/utils/ui_utils/custom_circular.dart';
 import 'package:arboblar_uz/utils/ui_utils/error_message_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 class ProfileScreenUi extends StatelessWidget {
   const ProfileScreenUi({super.key});
@@ -41,7 +42,7 @@ class ProfileScreenUi extends StatelessWidget {
                     child: Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 40.0),
+                          padding: const EdgeInsets.only(bottom: 10.0),
                           child: Container(
                             height: MediaQuery.of(context).size.height,
                             decoration: BoxDecoration(
@@ -66,19 +67,13 @@ class ProfileScreenUi extends StatelessWidget {
                           child: Stack(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left: 10, top: 10),
-                                child: Icon(
-                                  Icons.close,
-                                  color: Color(0xffC3C3C3),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 10, top: 10),
+                                padding:
+                                    const EdgeInsets.only(left: 10, top: 10),
                                 child: Align(
                                   alignment: Alignment.topCenter,
                                   child: Text(
                                     state.userModel.username,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Color(0xffBDBDBD),
                                       fontSize: 25,
                                     ),
@@ -93,13 +88,16 @@ class ProfileScreenUi extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: Color(0xffD8D8D8),
-                                child: Icon(
-                                  Icons.chat,
-                                  size: 30,
-                                  color: Color(0xff6E6E6E),
+                              ZoomTapAnimation(
+                                onTap: () {},
+                                child: const CircleAvatar(
+                                  radius: 30,
+                                  backgroundColor: Color(0xffD8D8D8),
+                                  child: Icon(
+                                    Icons.chat,
+                                    size: 30,
+                                    color: Color(0xff6E6E6E),
+                                  ),
                                 ),
                               ),
                               CircleAvatar(
@@ -107,13 +105,16 @@ class ProfileScreenUi extends StatelessWidget {
                                 backgroundImage: NetworkImage(baseUrl +
                                     state.userModel.avatar.substring(1)),
                               ),
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: Color(0xffD8D8D8),
-                                child: Icon(
-                                  Icons.call,
-                                  size: 30,
-                                  color: Color(0xff6E6E6E),
+                              ZoomTapAnimation(
+                                onTap: () {},
+                                child: const CircleAvatar(
+                                  radius: 30,
+                                  backgroundColor: Color(0xffD8D8D8),
+                                  child: Icon(
+                                    Icons.call,
+                                    size: 30,
+                                    color: Color(0xff6E6E6E),
+                                  ),
                                 ),
                               ),
                             ],
@@ -125,58 +126,104 @@ class ProfileScreenUi extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                     child: Text(
-                      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters',
+                      'They say confidence is key, but I unlocked the whole damn vault Under this fierce exterior lies a heart of gold. Follow along for a taste of my unfiltered reality. Leaving timid souls trailing in my electrifying wake',
                       style: TextStyle(fontSize: 15),
                     ),
                   ),
-                  Row(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
-                        state.userModel.role,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text(
+                            'Role',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            state.userModel.role,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                      const Text(
-                        '|',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text(
+                            'contact',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            state.userModel.contact,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                      const Text(
-                        'Dev',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text(
+                            'gender',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            state.userModel.gender,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        '|',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'Android',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '|',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'Travel',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text(
+                            'user name',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            state.userModel.username,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                 ],

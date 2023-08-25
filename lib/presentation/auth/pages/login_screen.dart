@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 57,
                     width: 326,
                     child: ElevatedButton(
@@ -97,10 +97,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16))),
-                          elevation: MaterialStatePropertyAll<double>(10),
+                          elevation: const MaterialStatePropertyAll<double>(10),
                           backgroundColor:
-                              MaterialStatePropertyAll<Color>(Colors.blue)),
-                      child: Text('Login'),
+                              const MaterialStatePropertyAll<Color>(
+                                  Colors.blue)),
+                      child: const Text('Login'),
                     ),
                   ),
                 ],

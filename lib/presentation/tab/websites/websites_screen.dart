@@ -1,3 +1,4 @@
+import 'package:arboblar_uz/utils/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:arboblar_uz/cubits/website/website_cubit.dart';
@@ -47,7 +48,6 @@ class _WebsitesScreenState extends State<WebsitesScreen> {
               ...List.generate(state.websites.length, (index) {
                 WebsiteModel website = state.websites[index];
                 return Container(
-                  height: 200,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
@@ -65,7 +65,7 @@ class _WebsitesScreenState extends State<WebsitesScreen> {
                         ),
                         subtitle: Text(website.link),
                       ),
-                      // Image.network(website.image)
+                      Image.network(baseUrlForImage + website.image),
                       Row(
                         children: [
                           const SizedBox(
@@ -75,7 +75,6 @@ class _WebsitesScreenState extends State<WebsitesScreen> {
                         ],
                       ),
                       Text(website.name),
-
                       Row(
                         children: [
                           const SizedBox(

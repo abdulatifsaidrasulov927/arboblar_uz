@@ -39,7 +39,7 @@ class _TabBoxState extends State<TabBox> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.web), label: "Article"),
+          BottomNavigationBarItem(icon: Icon(Icons.web), label: "Web"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
         currentIndex: context.watch<TabCubit>().state,

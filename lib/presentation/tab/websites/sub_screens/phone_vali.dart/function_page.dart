@@ -142,7 +142,7 @@ class FunctionsPageState extends State<FunctionsPage>
             ),
             const SizedBox(height: 20),
             Row(
-              children: <Widget>[
+              children: [
                 Expanded(
                   child: ElevatedButton(
                     onPressed: validate,
