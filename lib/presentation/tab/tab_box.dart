@@ -30,7 +30,10 @@ class _TabBoxState extends State<TabBox> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocListener<AuthCubit, AuthState>(
-        child: screens[context.watch<TabCubit>().state],
+        child: IndexedStack(
+          index: context.watch<TabCubit>().state,
+          children: screens,
+        ),
         listener: (context, state) {
           if (state is AuthUnAuthenticatedState) {
             Navigator.pushReplacementNamed(context, RouteNames.loginScreen);

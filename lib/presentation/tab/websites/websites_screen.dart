@@ -31,7 +31,7 @@ class _WebsitesScreenState extends State<WebsitesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Articles screen"),
+        title: const Text("Web"),
         actions: [
           IconButton(
             onPressed: () {

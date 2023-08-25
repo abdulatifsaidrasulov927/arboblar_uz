@@ -11,7 +11,6 @@ import 'package:arboblar_uz/presentation/tab/websites/sub_screens/phone_vali.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/// TODO: Add previous hardcoded examples
 // parse '17449106505' (MX)
 // parse list "+48606723456", "+48774843312"
 // format '+47234723432', 'BR'
@@ -119,6 +118,7 @@ class FunctionsPageState extends State<FunctionsPage>
               },
               controller: numberCtrl,
               autocorrect: false,
+              maxLength: 9,
               enableSuggestions: false,
               autofocus: true,
               keyboardType: TextInputType.phone,
@@ -311,7 +311,7 @@ class _ResultRow extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(0, 6, 0, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
+        children: [
           Flexible(child: Text(name, style: theme.textTheme.bodyMedium)),
           Flexible(child: Text(value, style: theme.textTheme.bodyLarge)),
         ],
