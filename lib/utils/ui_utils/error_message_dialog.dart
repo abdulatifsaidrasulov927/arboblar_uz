@@ -13,7 +13,7 @@ void showErrorMessage({
       backgroundColor: Colors.white,
       title: const Text(
         "Error",
-        style: TextStyle(fontWeight: FontWeight.w800),
+        style: TextStyle(fontWeight: FontWeight.w800, color: Colors.red),
       ),
       content: Padding(
         padding: const EdgeInsets.only(top: 10),
@@ -24,13 +24,27 @@ void showErrorMessage({
         ),
       ),
       actions: [
-        CupertinoDialogAction(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          isDefaultAction: true,
-          child: const Text("ok"),
-        )
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 57,
+              width: 290,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16))),
+                    elevation: const MaterialStatePropertyAll<double>(10),
+                    backgroundColor:
+                        const MaterialStatePropertyAll<Color>(Colors.blue)),
+                child: const Text('ok'),
+              ),
+            ),
+          ],
+        ),
       ],
     ),
   );

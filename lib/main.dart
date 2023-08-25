@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arboblar_uz/cubits/auth/auth_cubit.dart';
+import 'package:arboblar_uz/cubits/profile/profile_cubit.dart';
+import 'package:arboblar_uz/cubits/tab/tab_cubit.dart';
+import 'package:arboblar_uz/cubits/user_data/user_data_cubit.dart';
+import 'package:arboblar_uz/cubits/website/website_cubit.dart';
 import 'package:arboblar_uz/data/local/storage_repository.dart';
 import 'package:arboblar_uz/data/network/api_service.dart';
 import 'package:arboblar_uz/data/repositories/auth_repository.dart';
-import 'package:arboblar_uz/ui/presentation/app_routes.dart';
-import 'package:arboblar_uz/utils/theme.dart';
+import 'package:arboblar_uz/data/repositories/profile_repository.dart';
+import 'package:arboblar_uz/data/repositories/website_repository.dart';
+import 'package:arboblar_uz/presentation/app_routes.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +20,9 @@ Future<void> main() async {
 
   runApp(App(apiService: ApiService()));
 }
+
+TextEditingController phoneControllerMain = TextEditingController();
+void dismissKeyboard(BuildContext context) => FocusScope.of(context).unfocus();
 
 class App extends StatelessWidget {
   const App({super.key, required this.apiService});
@@ -27,6 +35,12 @@ class App extends StatelessWidget {
       providers: [
         RepositoryProvider(
           create: (context) => AuthRepository(apiService: apiService),
+        ),
+        RepositoryProvider(
+          create: (context) => ProfileRepository(apiService: apiService),
+        ),
+        RepositoryProvider(
+          create: (context) => WebsiteRepository(apiService: apiService),
         )
       ],
       child: MultiBlocProvider(
@@ -35,7 +49,15 @@ class App extends StatelessWidget {
             create: (context) => AuthCubit(
               authRepository: context.read<AuthRepository>(),
             ),
-          )
+          ),
+          BlocProvider(create: (context) => TabCubit()),
+          BlocProvider(create: (context) => UserDataCubit()),
+          BlocProvider(
+              create: (context) => ProfileCubit(
+                  profileRepository: context.read<ProfileRepository>())),
+          BlocProvider(
+              create: (context) => WebsiteCubit(
+                  websiteRepository: context.read<WebsiteRepository>())),
         ],
         child: const MyApp(),
       ),
@@ -53,11 +75,8 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return const MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: AppTheme.darkTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: ThemeMode.dark,
           onGenerateRoute: AppRoutes.generateRoute,
           initialRoute: RouteNames.splashScreen,
         );

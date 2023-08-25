@@ -1,7 +1,8 @@
-import 'package:arboblar_uz/data/models/universal_data.dart';
 import 'package:arboblar_uz/data/repositories/auth_repository.dart';
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:arboblar_uz/data/models/universal_data.dart';
 import 'package:arboblar_uz/data/models/user/user_model.dart';
 import 'package:meta/meta.dart';
 
@@ -81,5 +82,9 @@ class AuthCubit extends Cubit<AuthState> {
     if (isDeleted != null) {
       emit(AuthUnAuthenticatedState());
     }
+  }
+
+  updateState() {
+    emit(AuthInitial());
   }
 }
