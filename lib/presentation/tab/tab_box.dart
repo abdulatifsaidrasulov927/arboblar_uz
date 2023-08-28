@@ -1,3 +1,4 @@
+import 'package:arboblar_uz/presentation/article/articles_screen.dart';
 import 'package:arboblar_uz/presentation/tab/profile/profile_screen_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +22,7 @@ class _TabBoxState extends State<TabBox> {
     screens = [
       const WebsitesScreen(),
       const ProfileScreenUi(),
+      const ArticlesScreen(),
     ];
 
     super.initState();
@@ -44,6 +46,7 @@ class _TabBoxState extends State<TabBox> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.web), label: "Web"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(icon: Icon(Icons.article), label: "article"),
         ],
         currentIndex: context.watch<TabCubit>().state,
         onTap: context.read<TabCubit>().changeTabIndex,

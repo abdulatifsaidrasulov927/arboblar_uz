@@ -10,7 +10,7 @@ class WebsiteRepository {
   Future<UniversalData> getWebsites() async => apiService.getWebsites();
 
   Future<UniversalData> getWebsiteById(int websiteId) async =>
-      apiService.getWebsiteById(websiteId);
+      apiService.getWebById(websiteId);
 
   Future<UniversalData> createWebsite(WebsiteModel newWebsite) async =>
       apiService.createWebsite(websiteModel: newWebsite);

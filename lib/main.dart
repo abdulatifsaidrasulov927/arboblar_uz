@@ -1,3 +1,5 @@
+import 'package:arboblar_uz/cubits/acrticles/articles_cubit.dart';
+import 'package:arboblar_uz/data/repositories/articles_reository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,6 +43,9 @@ class App extends StatelessWidget {
         ),
         RepositoryProvider(
           create: (context) => WebsiteRepository(apiService: apiService),
+        ),
+        RepositoryProvider(
+          create: (context) => ArticlesRepository(apiService: apiService),
         )
       ],
       child: MultiBlocProvider(
@@ -58,6 +63,9 @@ class App extends StatelessWidget {
           BlocProvider(
               create: (context) => WebsiteCubit(
                   websiteRepository: context.read<WebsiteRepository>())),
+          BlocProvider(
+              create: (context) => ArticlesCubit(
+                  articlesRepository: context.read<ArticlesRepository>())),
         ],
         child: const MyApp(),
       ),

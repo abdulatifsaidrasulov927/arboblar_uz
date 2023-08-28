@@ -1,4 +1,3 @@
-import 'package:arboblar_uz/utils/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:arboblar_uz/cubits/website/website_cubit.dart';
@@ -65,7 +64,7 @@ class _WebsitesScreenState extends State<WebsitesScreen> {
                         ),
                         subtitle: Text(website.link),
                       ),
-                      Image.network(baseUrlForImage + website.image),
+                      // Image.network(baseUrlForImage + website.image),
                       Row(
                         children: [
                           const SizedBox(
@@ -105,6 +104,7 @@ class _WebsitesScreenState extends State<WebsitesScreen> {
         },
         listener: (context, state) {
           if (state.status == FormStatus.failure) {
+            print('>>>>>>>>>>>> ${state.status}');
             showErrorMessage(
               message: state.statusText,
               context: context,
