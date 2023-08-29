@@ -1,6 +1,8 @@
 import 'package:arboblar_uz/cubits/acrticles/articles_cubit.dart';
 import 'package:arboblar_uz/cubits/acrticles/articles_state.dart';
 import 'package:arboblar_uz/data/models/article_model/article_model.dart';
+import 'package:arboblar_uz/presentation/app_routes.dart';
+import 'package:arboblar_uz/utils/ui_utils/loading_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:arboblar_uz/data/models/status/form_status.dart';
@@ -30,6 +32,14 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, RouteNames.addArticle);
+            },
+            icon: const Icon(Icons.add),
+          )
+        ],
         title: const Text("articles"),
       ),
       body: BlocConsumer<ArticlesCubit, ArticlesState>(
@@ -76,6 +86,12 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
           }
           if (state.statusText == "articles_added") {
             BlocProvider.of<ArticlesCubit>(context).getArticles(context);
+          }
+          if (state.status == FormStatus.loading) {
+            return showLoading(context: context);
+          }
+          if (state.status == FormStatus.success) {
+            return hideLoading(context: context);
           }
         },
       ),

@@ -1,3 +1,4 @@
+import 'package:arboblar_uz/presentation/article/widgets/articles_add_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:arboblar_uz/data/models/user/user_model.dart';
 import 'package:arboblar_uz/presentation/auth/gmail_confirm/gmail_confirm_screen.dart';
@@ -14,6 +15,7 @@ class RouteNames {
   static const String tabBox = "/tab_box";
   static const String confirmGmail = "/confirm_gmail";
   static const String addWebsite = "/add_website";
+  static const String addArticle = "/add_article";
 }
 
 class AppRoutes {
@@ -36,6 +38,9 @@ class AppRoutes {
 
       case RouteNames.addWebsite:
         return MaterialPageRoute(builder: (context) => AddWebsiteScreen());
+
+      case RouteNames.addArticle:
+        return MaterialPageRoute(builder: (context) => AddArticlsScreen());
 
       case RouteNames.confirmGmail:
         return MaterialPageRoute(

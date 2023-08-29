@@ -10,4 +10,5 @@ enum ArticlesFieldKeys {
   avatar,
   profession,
   user_id,
+  hashtag,
 }

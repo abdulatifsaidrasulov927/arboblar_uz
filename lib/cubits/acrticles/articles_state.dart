@@ -43,11 +43,10 @@ class ArticlesState extends Equatable {
       ];
 
   bool canAddArticles() {
-    if (articleModel.username.isEmpty) return false;
-
     if (articleModel.image.isEmpty) return false;
     if (articleModel.title.isEmpty) return false;
-    if (articleModel.avatar.isEmpty) return false;
+    if (articleModel.hashtag.isEmpty) return false;
+
     if (articleModel.description.isEmpty) return false;
     return true;
   }

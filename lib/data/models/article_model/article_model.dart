@@ -105,16 +105,16 @@ class ArticleModel {
     return '''
     
     "title":$title,
-    "title":$description,
-    "title":$hashtag,
-    "title":$image,
-    "title":$avatar,
-    "title":$addDate,
-    "title":$artId,
-    "title":$likes,
-    "title":$views,
-    "title":$profession,
-    "title":$username,
+    "description":$description,
+    "hashtag":$hashtag,
+    "image":$image,
+    "avatar":$avatar,
+    "addDate":$addDate,
+    "artId":$artId,
+    "likes":$likes,
+    "views":$views,
+    "profession":$profession,
+    "username":$username,
    
     ''';
   }

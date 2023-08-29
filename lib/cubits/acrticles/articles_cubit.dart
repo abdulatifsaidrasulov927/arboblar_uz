@@ -22,10 +22,10 @@ class ArticlesCubit extends Cubit<ArticlesState> {
                   profession: '',
                   views: '',
                   image: '',
-                  description: 'describtion',
+                  description: '',
                   username: '',
                   likes: '',
-                  title: 'Title',
+                  title: '',
                 ),
               ],
               articleDetails: ArticleModel(
@@ -61,7 +61,7 @@ class ArticlesCubit extends Cubit<ArticlesState> {
 
   final ArticlesRepository articlesRepository;
 
-  createWebsite() async {
+  createArticls() async {
     emit(state.copyWith(
       status: FormStatus.loading,
       statusText: "",
@@ -72,7 +72,7 @@ class ArticlesCubit extends Cubit<ArticlesState> {
       emit(
         state.copyWith(
           status: FormStatus.success,
-          statusText: "",
+          statusText: "articles_added",
         ),
       );
     } else {
@@ -97,9 +97,8 @@ class ArticlesCubit extends Cubit<ArticlesState> {
       emit(
         state.copyWith(
           status: FormStatus.success,
-          statusText: "get_website",
-          articleDetails: response.data,
-          articleModel: response.data,
+          statusText: "get_articles",
+          articles: response.data,
         ),
       );
     } else {
@@ -145,6 +144,11 @@ class ArticlesCubit extends Cubit<ArticlesState> {
       case ArticlesFieldKeys.add_date:
         {
           currentArticles = currentArticles.copyWith(addDate: value as String);
+          break;
+        }
+      case ArticlesFieldKeys.hashtag:
+        {
+          currentArticles = currentArticles.copyWith(hashtag: value as String);
           break;
         }
       case ArticlesFieldKeys.art_id:
