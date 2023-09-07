@@ -36,16 +36,16 @@ class App extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(
-          create: (context) => AuthRepository(apiService: apiService),
+          create: (context) => AuthRepository(),
         ),
         RepositoryProvider(
-          create: (context) => ProfileRepository(apiService: apiService),
+          create: (context) => ProfileRepository(),
         ),
         RepositoryProvider(
-          create: (context) => WebsiteRepository(apiService: apiService),
+          create: (context) => WebsiteRepository(),
         ),
         RepositoryProvider(
-          create: (context) => ArticlesRepository(apiService: apiService),
+          create: (context) => ArticlesRepository(),
         )
       ],
       child: MultiBlocProvider(

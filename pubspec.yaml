@@ -27,6 +27,7 @@ dependencies:
   shimmer: ^3.0.0
   phone_number: ^2.0.1
   url_launcher: ^6.1.12
+  get_it: ^7.6.4
 
 dev_dependencies:
   flutter_test:

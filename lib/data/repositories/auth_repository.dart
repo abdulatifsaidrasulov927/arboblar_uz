@@ -2,32 +2,31 @@ import 'package:arboblar_uz/data/local/storage_repository.dart';
 import 'package:arboblar_uz/data/models/universal_data.dart';
 import 'package:arboblar_uz/data/models/user/user_model.dart';
 import 'package:arboblar_uz/data/network/api_service.dart';
+import 'package:arboblar_uz/servis/servis_locator.dart';
 
 class AuthRepository {
-  final ApiService apiService;
-
-  AuthRepository({required this.apiService});
+  AuthRepository();
 
   Future<UniversalData> sendCodeToGmail({
     required String gmail,
     required String password,
   }) async =>
-      apiService.sendCodeToGmail(
+      getIt<ApiService>().sendCodeToGmail(
         gmail: gmail,
         password: password,
       );
 
   Future<UniversalData> confirmCode({required String code}) async =>
-      apiService.confirmCode(code: code);
+      getIt<ApiService>().confirmCode(code: code);
 
   Future<UniversalData> registerUser({required UserModel userModel}) async =>
-      apiService.registerUser(userModel: userModel);
+      getIt<ApiService>().registerUser(userModel: userModel);
 
   Future<UniversalData> loginUser({
     required String gmail,
     required String password,
   }) async =>
-      apiService.loginUser(
+      getIt<ApiService>().loginUser(
         gmail: gmail,
         password: password,
       );
